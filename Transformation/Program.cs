@@ -7,7 +7,7 @@ namespace Transformation
     {
         static void Main(string[] args)
         {
-            string str1 = "1 + 2 * (3 + 4)";
+            string str1 = "1 + 2 * 3 + 4";
             string str2 = "A or not (B and(C or D))";
             string str3 = "(not (x and y))";
 

@@ -39,6 +39,9 @@ namespace Transformation
 
         static public string GetExpressionArif(string input)
         {
+            if (String.IsNullOrEmpty(input))
+                return "Error. The string is empty!";
+
             string output = string.Empty; //Строка для хранения выражения
             Stack<char> operStack = new Stack<char>(); //Стек для хранения операторов
 
@@ -73,12 +76,20 @@ namespace Transformation
                     {
                         //Выписываем все операторы до открывающей скобки в строку
                         char s = operStack.Pop();
-
-                        while (s != '(')
+                        try
                         {
-                            output += s.ToString() + ' ';
-                            s = operStack.Pop();
+                            while (s != '(')
+                            {
+                                output += s.ToString() + ' ';
+                                s = operStack.Pop();
+                            }
                         }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                            Console.WriteLine("Perhaps there is no '('");
+                        }
+
                     }
                     else //Если любой другой оператор
                     {
@@ -94,7 +105,13 @@ namespace Transformation
 
             //Когда прошли по всем символам, выкидываем из стека все оставшиеся там операторы в строку
             while (operStack.Count > 0)
-                output += operStack.Pop() + " ";
+            {
+                char el = operStack.Pop();
+                if (el == '(')
+                    Console.WriteLine("Missing ')'");
+                else
+                    output += el + " ";
+            }
 
             return output; //Возвращаем выражение в постфиксной записи
         }
@@ -181,6 +198,9 @@ namespace Transformation
 
         static public string GetExpressionLog(string input)
         {
+            if (String.IsNullOrEmpty(input))
+                return "Error. The string is empty!";
+
             string output = string.Empty;
             Stack<string> operStack = new Stack<string>();
             List<string> objects = GetSplitLine(input); //List хранит все объекты строки
@@ -197,10 +217,18 @@ namespace Transformation
                     {
                         string s = operStack.Pop();
 
-                        while (s != "(")
+                        try
                         {
-                            output += s + " ";
-                            s = operStack.Pop();
+                            while (s != "(")
+                            {
+                                output += s.ToString() + ' ';
+                                s = operStack.Pop();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                            Console.WriteLine("Perhaps there is no '('");
                         }
                     }
                     else
@@ -215,7 +243,13 @@ namespace Transformation
             }
 
             while (operStack.Count > 0)
-                output += operStack.Pop() + " ";
+            {
+                string el = operStack.Pop();
+                if (el == "(")
+                    Console.WriteLine("Missing ')'");
+                else
+                    output += el + " ";
+            }
 
             return output;
         }
