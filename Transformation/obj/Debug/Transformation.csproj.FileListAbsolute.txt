@@ -1,0 +1,6 @@
+C:\Users\kiril\source\repos\Transformation\Transformation\bin\Debug\Transformation.exe.config
+C:\Users\kiril\source\repos\Transformation\Transformation\bin\Debug\Transformation.exe
+C:\Users\kiril\source\repos\Transformation\Transformation\bin\Debug\Transformation.pdb
+C:\Users\kiril\source\repos\Transformation\Transformation\obj\Debug\Transformation.csprojAssemblyReference.cache
+C:\Users\kiril\source\repos\Transformation\Transformation\obj\Debug\Transformation.exe
+C:\Users\kiril\source\repos\Transformation\Transformation\obj\Debug\Transformation.pdb
